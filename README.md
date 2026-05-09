@@ -57,4 +57,4 @@ The following implementation overview is based on the provided instructions for 
 
 ##### Networking
 * Put ECS tasks in a private subnet - no needto have them in a public subnets
-* 
+* Create ECR VPC Endpoint to keep traffic internally in AWS
