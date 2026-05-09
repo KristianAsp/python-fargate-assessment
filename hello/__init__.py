@@ -14,4 +14,9 @@ def create_app():
     def hello():
         return "Hello, World"
 
+
+    @app.route("/__mon/health")
+    def health():
+        return "{\"health\": \"ok\"}"
+
     return app
