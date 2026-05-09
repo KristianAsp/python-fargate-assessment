@@ -15,8 +15,11 @@ The following implementation overview is based on the provided instructions for 
 
 ### Notes
 
+**Overall Notes**
+* Use `ap-southeast-1` i.e. Singapore region for everything
+
 **Dockerizing Service**
-- This should be pushed to ECR
+* This should be pushed to ECR
     - Do we have credentials for this?
 
 **CI/CD**
