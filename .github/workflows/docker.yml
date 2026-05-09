@@ -1,0 +1,37 @@
+name: Docker Build & Push
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ECR_REPOSITORY_URL: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-southeast-1.amazonaws.com/ecr-tprepo
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # AWS Credentials provided through Github CI Secrets
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.ECR_DOCKER_PUSH_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.ECR_DOCKER_PUSH_SECRET_KEY }}
+          aws-region: ap-southeast-1
+
+      - uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push
+        run: |
+          docker build -t $ECR_REPOSITORY_URL:${GITHUB_SHA::7} .
+          
+          # Temporarily disable push until we want to actually deploy
+          # This to avoid polluting the ECR Repository with images
+          # docker push $ECR_REPOSITORY_URL:${GITHUB_SHA::7}
