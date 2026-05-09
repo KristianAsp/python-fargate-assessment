@@ -12,7 +12,7 @@ The following implementation overview is based on the provided instructions for 
 - [] CI/CD Workflows
     - [x] Testing Application
     - [x] Linting
-    - [] Docker Build
+    - [x] Docker Build
     - [] Terraform Deployment
 
 ### Notes
