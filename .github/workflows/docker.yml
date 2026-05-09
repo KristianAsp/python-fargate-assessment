@@ -31,7 +31,4 @@ jobs:
       - name: Build and push
         run: |
           docker build -t $ECR_REPOSITORY_URL:${GITHUB_SHA::7} .
-          
-          # Temporarily disable push until we want to actually deploy
-          # This to avoid polluting the ECR Repository with images
-          # docker push $ECR_REPOSITORY_URL:${GITHUB_SHA::7}
+          docker push $ECR_REPOSITORY_URL:${GITHUB_SHA::7}
