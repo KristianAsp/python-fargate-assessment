@@ -10,7 +10,8 @@ The following implementation overview is based on the provided instructions for 
 - [] Deploy to Fargate (manual)
 - [] Create Terraform manifests
 - [] CI/CD Workflows
-    - [] Testing Application
+    - [x] Testing Application
+    - [x] Linting
     - [] Docker Build
     - [] Terraform Deployment
 
@@ -29,8 +30,9 @@ The following implementation overview is based on the provided instructions for 
             * We **do not** have permissions to list images. 
 
 **CI/CD**
-* Three workflows
+* Four workflows
     - Testing Application
+    - Linting
     - Docker Build & ECR push
     - Terraform Deployment
 * Testing should be triggered automatically on each Pull Request
