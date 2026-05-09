@@ -7,13 +7,13 @@ The following implementation overview is based on the provided instructions for 
 - [x] Setup local virtualenv
 - [x] Dockerize Service
     - [x] Minimal working Dockerfile that will install dependencies and run a Flask application
-- [] Deploy to Fargate (manual)
-- [] Create Terraform manifests
-- [] CI/CD Workflows
+- [x] Deploy to Fargate (manual)
+- [x] Create Terraform manifests
+- [x] CI/CD Workflows
     - [x] Testing Application
     - [x] Linting
     - [x] Docker Build
-    - [] Terraform Deployment
+    - [x] Terraform Deployment
 
 ### Notes
 
@@ -57,4 +57,4 @@ The following implementation overview is based on the provided instructions for 
 
 ##### Networking
 * Put ECS tasks in a private subnet - no needto have them in a public subnets
-* 
+* Create ECR VPC Endpoint to keep traffic internally in AWS
