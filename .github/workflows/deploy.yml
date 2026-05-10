@@ -35,6 +35,12 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v3
 
+      - uses: actions/cache@v4
+        with:
+          path: infrastructure/.terraform
+          key: terraform-${{ hashFiles('infrastructure/.terraform.lock.hcl') }}
+          restore-keys: terraform-
+
       - run: terraform init
         env:
           TF_TOKEN_app_terraform_io: ${{ secrets.TF_CLOUD_DEPLOY_TOKEN }}
